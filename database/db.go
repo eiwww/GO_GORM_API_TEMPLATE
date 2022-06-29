@@ -40,7 +40,7 @@ func ConnectDB() error {
 	dbHost := os.Getenv("DBHOST")
 	dbName := os.Getenv("DBNAME")
 
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?charset=utf8&parseTime=True", dbUser, dbPass, dbHost, dbName)
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?charset=utf8&loc=Local&parseTime=True", dbUser, dbPass, dbHost, dbName)
 	database, er := gorm.Open(mysql.Open(dsn), &gorm.Config{
 		Logger: &SqlLogger{},
 		// DryRun: true,
@@ -52,6 +52,7 @@ func ConnectDB() error {
 	}
 
 	db = database
+
 	return er
 }
 

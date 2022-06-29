@@ -19,8 +19,28 @@ func GetAllProvince(c *gin.Context) {
 	}
 
 	provinces := []model.Province{}
-
 	tx := db.Find(&provinces)
+	if tx.Error != nil {
+		fmt.Println(tx.Error)
+		return
+	}
+	c.JSON(200, gin.H{"provinces": provinces})
+}
+
+func GetProvinceById(c *gin.Context) {
+	db, conErr := database.GetDatabaseConnection()
+	if conErr != nil {
+		fmt.Println(conErr)
+		c.JSON(400, gin.H{
+			"message": "Service is unavailable",
+		})
+		return
+	}
+
+	provinceId := c.Param("provinceId")
+
+	provinces := model.Province{}
+	tx := db.Where("id = ?", provinceId).Find(&provinces)
 	if tx.Error != nil {
 		fmt.Println(tx.Error)
 		return

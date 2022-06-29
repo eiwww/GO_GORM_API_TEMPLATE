@@ -12,6 +12,7 @@ func ProvinceRoutes(app *gin.RouterGroup) {
 	province := app.Group("/provinces")
 	{
 		province.GET("/", controllerV1.GetAllProvince)
+		province.GET("/:provinceId", controllerV1.GetProvinceById)
 	}
 
 }

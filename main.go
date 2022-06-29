@@ -4,7 +4,6 @@ import (
 	"log"
 	"os"
 
-	// controllerV1 "rest/api/v1/controller"
 	route "rest/api/v1/route"
 	"rest/database"
 

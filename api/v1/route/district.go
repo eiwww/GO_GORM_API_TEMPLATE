@@ -12,6 +12,8 @@ func DistrictRoutes(app *gin.RouterGroup) {
 	district := app.Group("/districts")
 	{
 		district.GET("/:provinceId", controllerV1.GetAllDistrict)
+		district.GET("/get/:districtId", controllerV1.GetDistrictById)
+		district.POST("/", controllerV1.CreateDistrict)
 	}
 
 }
