@@ -1,4 +1,4 @@
-module example/hello
+module rest
 
 go 1.18
 
