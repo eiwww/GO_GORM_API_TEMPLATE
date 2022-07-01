@@ -76,5 +76,11 @@ func CloseDBConnection(conn *gorm.DB) {
 }
 
 func MigrateDB() {
-	db.AutoMigrate(model.Province{}, model.District{})
+	db.AutoMigrate(
+		model.Province{},
+		model.District{},
+		model.Role{},
+		model.User{},
+		model.Profile{},
+	)
 }
