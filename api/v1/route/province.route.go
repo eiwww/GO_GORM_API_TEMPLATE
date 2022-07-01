@@ -13,6 +13,9 @@ func ProvinceRoutes(app *gin.RouterGroup) {
 	{
 		province.GET("/", controllerV1.GetAllProvince)
 		province.GET("/:provinceId", controllerV1.GetProvinceById)
+		province.POST("/", controllerV1.CreateProvince)
+		province.PUT("/", controllerV1.UpdateProvince)
+		province.POST("/delete/:provinceId", controllerV1.DeleteProvince)
 	}
 
 }

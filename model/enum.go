@@ -19,18 +19,18 @@ func (st sectorType) Value() (driver.Value, error) {
 	return string(st), nil
 }
 
-type isDelete string
+// type isDelete string
 
-const (
-	no  isDelete = "no"
-	yes isDelete = "no"
-)
+// const (
+// 	no  isDelete = "no"
+// 	yes isDelete = "no"
+// )
 
-func (de *isDelete) Scan(value interface{}) error {
-	*de = isDelete(value.([]byte))
-	return nil
-}
+// func (de *isDelete) Scan(value interface{}) error {
+// 	*de = isDelete(value.([]byte))
+// 	return nil
+// }
 
-func (de isDelete) Value() (driver.Value, error) {
-	return string(de), nil
-}
+// func (de isDelete) Value() (driver.Value, error) {
+// 	return string(de), nil
+// }

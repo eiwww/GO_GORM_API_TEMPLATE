@@ -14,6 +14,8 @@ func DistrictRoutes(app *gin.RouterGroup) {
 		district.GET("/:provinceId", controllerV1.GetAllDistrict)
 		district.GET("/get/:districtId", controllerV1.GetDistrictById)
 		district.POST("/", controllerV1.CreateDistrict)
+		district.PUT("/", controllerV1.UpdateDistrict)
+		district.POST("/delete/:districtId", controllerV1.DeleteDistrict)
 	}
 
 }

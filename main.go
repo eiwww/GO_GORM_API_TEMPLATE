@@ -9,6 +9,7 @@ import (
 
 	"rest/seeder"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"gorm.io/gorm"
@@ -32,6 +33,8 @@ func main() {
 
 	router := app.Group("/api/v1")
 	route.AddRoutes(router)
+
+	app.Use(cors.Default())
 
 	var port string = "127.0.0.1:" + os.Getenv("PORT")
 	app.Run(port)
